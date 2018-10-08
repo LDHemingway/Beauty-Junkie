@@ -24,8 +24,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(__dirname + '/client/build/'));
 
-app.use('/', (req, res) => {
-    res.sendFile(__direname + '/client/build/index.html')
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/client/build/index.html')
 });
 
 module.exports = app;
