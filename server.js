@@ -1,0 +1,31 @@
+require('dotenv').config()
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+const mongoose = require('mongoose')
+mongoose.connect(process.env.MONGODB_URI, {useNewParser: true})
+const connection = mongoose.connection
+connection.on('conneccted', () => {
+    console.log('Connected!')
+})
+connection.on('error', (err) => {
+    console.log('Failed to connect')
+})
+
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+
+var app = express();
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(__dirname + '/client/build/'));
+
+app.use('/', (req, res) => {
+    res.sendFile(__direname + '/client/build/index.html')
+});
+
+module.exports = app;
