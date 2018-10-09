@@ -6,7 +6,8 @@ mongoose.Promise = global.Promise
 const { Region, Product } = require('./Model')
 
 const mascara = new Product({
-    name: "L'Oreal - Lash Paradise",
+    brandName: "L'Oreal Paris",
+    productName: "Lash Paradise",
     description: "Take your lashes to paradise! L'Oreal's Voluminous Lash Paradise Mascara is their first mascara for voluptuous volume and length now with even more black pigments. Soft wavy bristle brush holds maximum formula for a dramatic volumizing charge.",
     image: "https://media.allure.com/photos/5b04d4ded14f7a0d0f182e1d/master/pass/L'Ore%CC%81al%20Paris%20Voluminous%20Lash%20Paradise%20Mascara.jpg",
     price: "$9.99",
@@ -14,7 +15,8 @@ const mascara = new Product({
 })
 
 const foundation = new Product({
-    name: "Too Faced - Born This Way",
+    brandName: "Too Faced",
+    productName: "Born This Way",
     descrition: "An oil-free foundation offering medium-to-full natural coverage. This foundation is infused with coconut water, alpine rose, and hyaluronic acid to help replenish the skin's moisture level and give a smoother, more youthful appearance",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-h7_KZmYyAN2-EsvzFD9NvS63OUar7xxXwOk1SMmE3PaPRyF9",
     price: "$39.00",
@@ -22,7 +24,8 @@ const foundation = new Product({
 })
 
 const lipstick = new Product({
-    name: "Anastasia Beverly Hills - Liquid Lipstick",
+    brandName: "Anastasia Beverly Hills",
+    productName: "Liquid Lipstick",
     description: "A full pigment liquid formula that dries to a weightless matte finish for smudge-proof wearability and long lasting color.",
     image: "https://www.anastasiabeverlyhills.co.uk/on/demandware.static/-/Sites-anastasia-master-catalog/default/dw709e114e/images/Redesign/Rescaled/abh-liquid-lipstick-set-a.jpg",
     price: "$20.00",
@@ -30,7 +33,8 @@ const lipstick = new Product({
 })
 
 const facescrub = new Product ({
-    name: "Murad - AHA/BHA Exfoliating Cleanser",
+    brandName: "Murad",
+    productName: "AHA/BHA Exfoliating Cleanser",
     description: "This intensive cleanser polishes away dullness and impurities with three exfoliating agents—Salicylic Acid, Lactic Acid, and Glycolic Acid—and Jojoba beads revealing a smoother, younger-looking complexion.",
     image: "https://6b901r-8ieybj5zerw6.webscalenetworks.net/HJzz2xIdH/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/1/0/a10078b.jpg.pagespeed.ic.YXZ3U4w4gV.webp",
     price: "$39.00",

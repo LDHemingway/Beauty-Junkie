@@ -7,7 +7,8 @@ const RegionSchema = new Schema ({
 })
 
 const ProductSchema = new Schema ({
-    name: String,
+    brandName: String,
+    productName: String,
     description: String,
     image: String,
     price: String,

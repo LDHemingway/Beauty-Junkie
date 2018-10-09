@@ -6,7 +6,9 @@ export default class Region extends Component {
     region: {
       name: '',
       image: '',
-      products: []
+      products: [
+        
+      ]
 
     }
   }
@@ -30,6 +32,13 @@ export default class Region extends Component {
 
   render() {
     const region = this.state.region 
+    const productsList = region.products.map((product, i) => {
+      return(
+        <div key={i}>
+        {product.image}
+        </div>
+      )
+    })
     return (
       <div>
         Region Name
