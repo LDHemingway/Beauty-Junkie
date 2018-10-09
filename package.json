@@ -1,6 +1,5 @@
 {
   "name": "beauty-junkie",
-  "proxy": "http://localhost:3001",
   "version": "0.0.0",
   "private": true,
   "scripts": {

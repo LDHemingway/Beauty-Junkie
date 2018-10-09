@@ -13,8 +13,14 @@ router.get('/:id', async(req, res) => {
   res.send(region)
 })
 
+// router.post('/', async (req, res) => {
+//   const region = await Region.create(req.body)
+//   res.send(region)
+// })
+
 router.post('/', async (req, res) => {
-  const region = await Region.create(req.body)
+  const newRegion = new Region(req.body)
+  const region = await newRegion.save()
   res.send(region)
 })
 
