@@ -5,6 +5,7 @@ import styled from 'styled-components'
 
 const StyledImage = styled.img`
     width: 10vw;
+    height: 10vw;
     border-radius: 50%;
     border: 2px solid black;
 `

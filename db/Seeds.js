@@ -39,25 +39,25 @@ const facescrub = new Product ({
 
 const lips = new Region ({
     name: "Lips",
-    image: "lips.svg",
+    image: "https://cdn3.bigcommerce.com/s-jd2vdz6ehx/products/1467/images/6071/lips__67504.1522849748.1280.1280.jpg?c=2",
     products: [lipstick]
 })
 
 const eyes = new Region ({
     name: "Eyes",
-    image: "eyes.svg",
+    image: "https://i.etsystatic.com/17170092/d/il/d00d9f/1484837473/il_340x270.1484837473_qp8z.jpg?version=0",
     products: [mascara]
 })
 
 const face = new Region ({
     name: "Face",
-    image: "drawing-face-female-6.png",
+    image: "https://estampadosibiza.com/wp-content/uploads/nbdesigner/cliparts/Girl/girl-art-face.svg",
     products: [foundation]
 })
 
 const skin = new Region ({
     name: "Skin",
-    image: "face.svg",
+    image: "https://www.svgrepo.com/show/43240/claw-bath-in-spa.svg",
     products: [facescrub]
 })
 
