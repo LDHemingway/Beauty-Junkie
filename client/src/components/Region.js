@@ -11,11 +11,11 @@ export default class Region extends Component {
   }
   
   render() {
-    const { image, _id } = this.state.region 
+    const region = this.state.region 
     return (
       <div>
         Region Name
-        {this.state.region.image}
+        {region.name}
         <div onClick={() => this.handleDelete(this.state.region._id)}> Delete This Region </div>
       </div>
     )
