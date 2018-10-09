@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import styled from 'styled-components'
+
+const StyledImage = styled.img`
+  width: 20vw;
+  border: 1px solid black;
+`
 
 export default class Region extends Component {
   state = {
@@ -40,7 +46,7 @@ export default class Region extends Component {
     const productsList = region.products.map((product, i) => {
       return(
         <div key={i}>
-        <div><img src={product.image} alt={product.productName}/></div>
+        <StyledImage src={product.image} alt={product.productName} />
         <div><strong>{product.price}</strong></div>
         <div>{product.brandName}</div>
         <div>{product.productName}</div>
@@ -49,7 +55,6 @@ export default class Region extends Component {
     })
     return (
       <div>
-        Region Name
         {region.name}
         {productsList}
         <button onClick={() => this.handleDelete(region._id)}> Delete This Region </button>

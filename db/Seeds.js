@@ -23,6 +23,15 @@ const foundation = new Product({
     link: "https://www.ulta.com/born-this-way-undetectable-medium-full-coverage-foundation?productId=xlsImpprod12621017"
 })
 
+const blush = new Product({
+   brandName: "Nars",
+   productName: "Blush (Orgasm)",
+   description: "NARS blush delivers healthy-looking color that enlivens the complexion and provides a natural-looking flush to flatter any skin tone.",
+   image: "https://www.narscosmetics.com/dw/image/v2/BBSK_PRD/on/demandware.static/-/Sites-itemmaster_NARS/default/dw2a802c91/hi-res/0607845040132.jpg?sw=856&sh=750&sm=fit",
+   price: "$30.00",
+   link: "https://www.sephora.com/product/blush-P2855"
+})
+
 const lipstick = new Product({
     brandName: "Anastasia Beverly Hills",
     productName: "Liquid Lipstick",
@@ -56,7 +65,7 @@ const eyes = new Region ({
 const face = new Region ({
     name: "Face",
     image: "https://estampadosibiza.com/wp-content/uploads/nbdesigner/cliparts/Girl/girl-art-face.svg",
-    products: [foundation]
+    products: [foundation, blush]
 })
 
 const skin = new Region ({
