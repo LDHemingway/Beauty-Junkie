@@ -6,9 +6,14 @@ export default class Region extends Component {
     region: {
       name: '',
       image: '',
-      products: [
-        
-      ]
+      products: [{
+        brandName: '',
+        productName: '',
+        description: '',
+        image: '',
+        price: '',
+        link: '',
+      }]
 
     }
   }
@@ -35,7 +40,10 @@ export default class Region extends Component {
     const productsList = region.products.map((product, i) => {
       return(
         <div key={i}>
-        {product.image}
+        <div><img src={product.image} alt={product.productName}/></div>
+        <div><strong>{product.price}</strong></div>
+        <div>{product.brandName}</div>
+        <div>{product.productName}</div>
         </div>
       )
     })
@@ -43,6 +51,7 @@ export default class Region extends Component {
       <div>
         Region Name
         {region.name}
+        {productsList}
         <button onClick={() => this.handleDelete(region._id)}> Delete This Region </button>
       </div>
     )
