@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const StyledImage = styled.img`
+    background: rgba(255, 158, 44, 0);
     width: 20vw;
     height: 20vw;
     border-radius: 50%;
     border: 2px solid black;
     &:hover {
-        background: #4B5043;
-        fill: rgba(255, 158, 44, .5);
+        background-color: peachpuff;
 
     }
 `
