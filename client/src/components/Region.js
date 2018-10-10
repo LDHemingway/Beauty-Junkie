@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const StyledImage = styled.img`
   width: 20vw;
   border: 1px solid black;
+`
+const StyledHeader = styled.img`
+    width: 20vw;
+    height: 20vh;
+    margin: 0 auto;
 `
 
 export default class Region extends Component {
@@ -55,7 +61,11 @@ export default class Region extends Component {
     })
     return (
       <div>
-        {region.name}
+        <div>
+          <StyledHeader src={region.image} alt={region.name}/>
+          {region.name}
+          <Link to='/'>Home</Link>
+        </div>
         {productsList}
         <button onClick={() => this.handleDelete(region._id)}> Delete This Region </button>
       </div>
