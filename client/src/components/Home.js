@@ -8,6 +8,11 @@ const StyledImage = styled.img`
     height: 20vw;
     border-radius: 50%;
     border: 2px solid black;
+    &:hover {
+        background: #4B5043;
+        fill: rgba(255, 158, 44, .5);
+
+    }
 `
 
 export default class Home extends Component {
