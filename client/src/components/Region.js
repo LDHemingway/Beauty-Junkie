@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 const StyledImage = styled.img`
   width: 20vw;
@@ -12,7 +12,9 @@ const StyledHeader = styled.img`
     height: 20vh;
     margin: 0 auto;
 `
-
+const StyledPage = styled.div`
+  background: peachpuff;
+`
 export default class Region extends Component {
   state = {
     region: {
@@ -41,15 +43,23 @@ export default class Region extends Component {
     this.findRegion()
   }
 
-  handleDelete = async (regionId) => {
-    const regionsId = this.props.match.params.regionsId
-    axios.delete(`/api/regions/${regionsId}`)
+  redirect = () => {
+
+  }
+
+  handleDelete = (regionId, res) => {
+    axios.delete(`/api/regions/${regionId}`)
     console.log('deleted')
+    this.setState({redirect: true})
+
   }
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to='/' />
+    }
     const region = this.state.region 
-    const productsList = region.products.map((product, i) => {
+    const productsList = this.state.region.products.map((product, i) => {
       return(
         <div key={i}>
         <StyledImage src={product.image} alt={product.productName} />
@@ -60,15 +70,17 @@ export default class Region extends Component {
       )
     })
     return (
-      <div>
+      <StyledPage>
         <div>
           <StyledHeader src={region.image} alt={region.name}/>
           {region.name}
+          <div>
           <Link to='/'>Home</Link>
+          </div>
         </div>
         {productsList}
         <button onClick={() => this.handleDelete(region._id)}> Delete This Region </button>
-      </div>
+      </StyledPage>
     )
   }
 }

@@ -12,7 +12,12 @@ const StyledImage = styled.img`
 
 export default class Home extends Component {
     state = {
-        regions: [],
+        regions: [{
+            name:'',
+            image: '',
+            _id:'',
+            products: []
+        }],
         formShowing: false,
         newRegion: {
             name: '',
@@ -52,11 +57,12 @@ export default class Home extends Component {
 
     handleSubmit = async (event) => {
         event.preventDefault()
+        console.log(this.state.newRegion)
         const response = await axios.post('/api/regions', this.state.newRegion)
         const regions = [...this.state.regions]
         regions.push(response.data)
+        this.setState({ regions })
     }
-    
     
 
   render() {

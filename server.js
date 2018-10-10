@@ -16,17 +16,19 @@ connection.on('error', (err) => {
 
 var app = express();
 
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(__dirname + '/client/build/'));
+
 var regionRouter = require('./routes/RegionController')
 app.use('/api/regions', regionRouter)
 
 var productRouter = require('./routes/ProductController')
 app.use('/api/regions/:regionid/products', productRouter)
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(__dirname + '/client/build/'));
+
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/client/build/index.html')
