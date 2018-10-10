@@ -52,13 +52,13 @@ const facescrub = new Product ({
 
 const lips = new Region ({
     name: "Lips",
-    image: "https://cdn3.bigcommerce.com/s-jd2vdz6ehx/products/1467/images/6071/lips__67504.1522849748.1280.1280.jpg?c=2",
+    image: "https://image.flaticon.com/icons/svg/45/45679.svg",
     products: [lipstick]
 })
 
 const eyes = new Region ({
     name: "Eyes",
-    image: "https://i.etsystatic.com/17170092/d/il/d00d9f/1484837473/il_340x270.1484837473_qp8z.jpg?version=0",
+    image: "https://nadia-afanaseva.com/images/eye.svg",
     products: [mascara]
 })
 
