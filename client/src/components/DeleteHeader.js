@@ -5,12 +5,14 @@ import { Redirect } from 'react-router-dom'
 
 const StyledHeader = styled.div`
     background: #8B636C;
+    font-family: 'Poiret One', cursive;
     color: white;
     display: flex;
     align-content: right;
     padding: 15px;
     justify-content: flex-end;
     align-self: right;
+    text-transform: lowercase;
     a {
       text-decoration: none;
       color: white;

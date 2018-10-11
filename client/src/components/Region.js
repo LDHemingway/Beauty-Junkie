@@ -7,6 +7,8 @@ import HomeHeader from './HomeHeader'
 import HomeLink from './HomeLink'
 import RegionNameAndImage from './RegionNameAndImage'
 import Button from '@material-ui/core/Button';
+import NewProduct from './NewProduct'
+
 
 const StyledImage = styled.img`
   width: 20vw;
@@ -40,14 +42,14 @@ export default class Region extends Component {
         _id: '',
       }]
     },
-    newProduct : [{
+    newProduct : {
       brandName: '',
       productName: '',
       description: '',
       image: '',
       price: '',
       link: ''
-    }]
+    }
   }
 
 
@@ -55,7 +57,7 @@ export default class Region extends Component {
     const regionId = this.props.match.params.regionId
     const response = await axios.get(`/api/regions/${regionId}`)
     const region = response.data
-    console.log("REPONSE: ", region)
+    // console.log("REPONSE: ", region)
     this.setState({region})
   }
   
@@ -70,27 +72,22 @@ export default class Region extends Component {
   }
 
   getProducts = async () => {
+    console.log('getting')
     const regionId = this.state.region._id
     const response = await axios.get(`/api/regions/${regionId}/products`)
     this.setState({products: response.data})  
   }
 
-  handleProductDelete = (productId) => {
+  handleProductDelete = async (productId) => {
     const regionId = this.state.region._id
-    console.log('DELETE TRIGGERED')
+    // console.log('DELETE TRIGGERED')
     axios.delete(`/api/regions/${regionId}/products/${productId}`)
-      .then( response => console.log("DELETE RESPSONSE: ", response))
+    this.findRegion()
   }
   handleChange = (event) => {
     const newProduct = {...this.state.newProduct}
     newProduct[event.target.name] = event.target.value
     this.setState({ newProduct })
-  }
-
-  updateIdea = async (i) => {
-    const regionId = this.props.match.params.regionId
-    const updatedProduct = this.state.products[i]
-    await axios.put(`/api/users/${regionId}/ideas/${updatedProduct._id}`, updatedProduct)
   }
 
   toggleFormShowing = () => {
@@ -116,8 +113,8 @@ export default class Region extends Component {
       return <Redirect to='/' />
     }
     const region = this.state.region 
-    console.log("Region", region)
-    console.log("Products", region.products)
+    // console.log("Region", region)
+    // console.log("Products", region.products)
     const productsList = this.state.region.products.map((product, i) => {
       return(
         <div key={i}>
@@ -165,42 +162,20 @@ export default class Region extends Component {
           <HomeHeader />
           <HomeLink />
           <RegionNameAndImage image={this.state.region.image} name={this.state.region.name} />
-           {this.state.formShowing ? 
-              <form onSubmit={this.handleSubmit} >
-                <div>
-                <input type='text' name='brandName' value={this.state.newProduct.brandName} placeholder='Brand Name'
-                  onChange={this.handleChange}/>
-                </div>
-                <div>
-                <input type='text' name='productName' value={this.state.newProduct.productName} placeholder='Product Name'
-                  onChange={this.handleChange}/>
-                </div>
-                <div>
-                <input type='text' name='description' value={this.state.newProduct.description} placeholder='Description'
-                  onChange={this.handleChange}/>
-                </div>
-                <div>
-                <input type='text' name='image' value={this.state.newProduct.image} placeholder='Image URL'
-                  onChange={this.handleChange}/>
-                </div>
-                <input type='text' name='price' value={this.state.newProduct.price} placeholder='Price'
-                  onChange={this.handleChange}/>
-                <div>
-                <input type='text' name='link' value={this.state.newProduct.link} placeholder='Link to Purchase'
-                  onChange={this.handleChange}/>
-                </div>
-                <div>
-                <input type='submit' value='Create'/>
-                </div>
-              </form> : null}
+           
 
-              {this.state.formShowing ? null : < button onClick={this.toggleFormShowing}>idr</button>}
-
-
-
-          <div>
-          <Link to='/'>Home</Link>
-          </div>
+          <NewProduct 
+          brandName={this.state.newProduct.brandName} 
+          productName={this.state.newProduct.productName} 
+          description={this.state.newProduct.description} 
+          image={this.state.newProduct.image} 
+          price={this.state.newProduct.price}
+          link={this.state.newProduct.link}
+          handleChange = {this.handleChange}
+          handleSubmit = {this.handleSubmit}
+          region = {this.state.region}
+          findRegion = {this.findRegion}
+          />
         </div>
         <ProductListContainer>
         {productsList}
