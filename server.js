@@ -26,7 +26,7 @@ var regionRouter = require('./routes/RegionController')
 app.use('/api/regions', regionRouter)
 
 var productRouter = require('./routes/ProductController')
-app.use('/api/regions/:regionid/products', productRouter)
+app.use('/api/regions/:regionId/products', productRouter)
 
 
 

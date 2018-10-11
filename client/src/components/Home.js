@@ -7,10 +7,10 @@ const StyledImage = styled.img`
     background: rgba(255, 158, 44, 0);
     width: 20vw;
     height: 20vw;
-    border-radius: 50%;
-    border: 2px solid black;
     &:hover {
-        background-color: peachpuff;
+        background-color: white;
+        border: 4px solid black;
+        border-radius: 50%;
 
     }
 `

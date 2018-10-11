@@ -62,6 +62,12 @@ export default class Region extends Component {
     this.setState({ newProduct })
   }
 
+  getProducts = async () => {
+    const regionId = this.state.region._id
+    const response = await axios.get(`/api/regions/${regionId}/products`)
+    this.setState({products: response.data})  
+  }
+
   handleDelete = (regionId, res) => {
     axios.delete(`/api/regions/${regionId}`)
     console.log('deleted')
@@ -70,8 +76,9 @@ export default class Region extends Component {
 
   handleProductDelete = (productId) => {
     const regionId = this.state.region._id
-    const id = this.state.product._id
-    axios.delete(`/api/regions/${regionId}/products/${id}`)
+    console.log('DELETE TRIGGERED')
+    axios.delete(`/api/regions/${regionId}/products/${productId}`)
+      .then( response => console.log("DELETE RESPSONSE: ", response))
   }
   handleChange = (event) => {
     const newProduct = {...this.state.newProduct}

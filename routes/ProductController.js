@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express.Router();
+var router = express.Router({mergeParams: true});
 const { Region, Product } = require('../db/Model')
 
 /* GET users listing. */
@@ -23,8 +23,10 @@ router.post('/', async (req, res) => {
 })
 
 router.delete('/:id', async(req, res) => {
-  await Product.findByIdAndRemove(req.params.id)
-  res.sendStatus(200)
+  const region = await Region.findById(req.params.regionId)
+  region.products.id(req.params.id).remove()
+  await region.save()
+  res.send(200)
 })
 
 
