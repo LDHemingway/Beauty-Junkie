@@ -17,6 +17,18 @@ const StyledImage = styled.img`
 
     }
 `
+const RegionsContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 15%;
+    padding: 10px;
+    background: #8B636C;
+    width: 50vw;
+`
 
 export default class Home extends Component {
     state = {
@@ -86,8 +98,9 @@ export default class Home extends Component {
         <HomeHeader />
         <HomeLink />
         <About/>
+        <RegionsContainer>
         {regionsList}
-        
+        </RegionsContainer>
     {this.state.formShowing ? null : <button onClick={this.toggleFormShowing}>Create New Region</button>} 
         
         

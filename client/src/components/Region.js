@@ -99,7 +99,7 @@ export default class Region extends Component {
     event.preventDefault()
     const regionId = this.state.region._id
     // console.log(regionId)
-    const response = await axios.post(`/api/regions/${regionId}/products`, this.state.newProduct)
+    const response = await axios.post(`/api/regions/${regionId}/products/`, this.state.newProduct)
     console.log('Response:', response.data)
     const products = this.state.region.products
     // console.log(products)
@@ -113,8 +113,6 @@ export default class Region extends Component {
       return <Redirect to='/' />
     }
     const region = this.state.region 
-    // console.log("Region", region)
-    // console.log("Products", region.products)
     const productsList = this.state.region.products.map((product, i) => {
       return(
         <div key={i}>
