@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import About from './About'
+import HomeHeader from './HomeHeader'
 
 const StyledImage = styled.img`
     background: rgba(255, 158, 44, 0);
@@ -80,7 +82,8 @@ export default class Home extends Component {
       })
     return (
       <div>
-        <h1>Beauty Junkie</h1>
+        <HomeHeader />
+        <About/>
         {regionsList}
         
     {this.state.formShowing ? null : <button onClick={this.toggleFormShowing}>Create New Region</button>} 

@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import { Link, Redirect } from 'react-router-dom'
+import Header from './Header'
 
 const StyledImage = styled.img`
   width: 20vw;
   border: 1px solid black;
 `
-const StyledHeader = styled.img`
+const StyledHeaderImage = styled.img`
     width: 20vw;
     height: 20vh;
     margin: 0 auto;
@@ -120,7 +121,8 @@ export default class Region extends Component {
     return (
       <StyledPage>
         <div>
-          <StyledHeader src={region.image} alt={region.name}/>
+          <Header regionId={this.state.region._id}/>
+          <StyledHeaderImage src={region.image} alt={region.name}/>
           {region.name}
           {this.state.formShowing ? null : <button onClick={this.toggleFormShowing}>List New Product</button>}
 
