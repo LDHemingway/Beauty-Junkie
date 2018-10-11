@@ -3,6 +3,7 @@ import axios from 'axios'
 import styled from 'styled-components'
 import { Link, Redirect } from 'react-router-dom'
 import Header from './Header'
+import HomeHeader from './HomeHeader'
 
 const StyledImage = styled.img`
   width: 20vw;
@@ -69,12 +70,6 @@ export default class Region extends Component {
     this.setState({products: response.data})  
   }
 
-  handleDelete = (regionId, res) => {
-    axios.delete(`/api/regions/${regionId}`)
-    console.log('deleted')
-    this.setState({redirect: true})
-  }
-
   handleProductDelete = (productId) => {
     const regionId = this.state.region._id
     console.log('DELETE TRIGGERED')
@@ -121,6 +116,7 @@ export default class Region extends Component {
     return (
       <StyledPage>
         <div>
+          <HomeHeader />
           <Header regionId={this.state.region._id}/>
           <StyledHeaderImage src={region.image} alt={region.name}/>
           {region.name}

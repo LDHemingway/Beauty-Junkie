@@ -8,6 +8,10 @@ const StyledImage = styled.img`
     border: .5px white solid;
 `
 const StyledHeader = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
     
 `
 
