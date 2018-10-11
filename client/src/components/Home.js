@@ -4,14 +4,15 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import About from './About'
 import HomeHeader from './HomeHeader'
+import HomeLink from './HomeLink'
 
 const StyledImage = styled.img`
     background: rgba(255, 158, 44, 0);
     width: 20vw;
     height: 20vw;
     &:hover {
-        background-color: white;
-        border: 4px solid black;
+        background-color: #EEE0E5;
+        border: 4px solid white;
         border-radius: 50%;
 
     }
@@ -83,6 +84,7 @@ export default class Home extends Component {
     return (
       <div>
         <HomeHeader />
+        <HomeLink />
         <About/>
         {regionsList}
         

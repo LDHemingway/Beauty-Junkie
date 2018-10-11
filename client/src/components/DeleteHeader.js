@@ -4,13 +4,18 @@ import styled from 'styled-components'
 import { Redirect } from 'react-router-dom'
 
 const StyledHeader = styled.div`
-    background: black;
+    background: #8B636C;
     color: white;
     display: flex;
     align-content: right;
     padding: 15px;
+    justify-content: flex-end;
     align-self: right;
-
+    a {
+      text-decoration: none;
+      color: white;
+      font-weight: 700;
+    }
 `
 
 
@@ -38,7 +43,7 @@ export default class Header extends Component {
       }
     return (
       <StyledHeader>
-        <h4 onClick={() => this.handleDelete(this.props.regionId)}> Delete This Region </h4>
+        <a href='/' onClick={() => this.handleDelete(this.props.regionId)}> Delete This Region </a>
       </StyledHeader>
     )
   }

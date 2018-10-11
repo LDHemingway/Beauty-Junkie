@@ -2,20 +2,26 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import { Link, Redirect } from 'react-router-dom'
-import Header from './Header'
+import DeleteHeader from './DeleteHeader'
 import HomeHeader from './HomeHeader'
+import HomeLink from './HomeLink'
+import RegionNameAndImage from './RegionNameAndImage'
+import Button from '@material-ui/core/Button';
 
 const StyledImage = styled.img`
   width: 20vw;
-  border: 1px solid black;
+  border: 2px solid #8B636C;
+  border-radius: 15%;
 `
-const StyledHeaderImage = styled.img`
-    width: 20vw;
-    height: 20vh;
-    margin: 0 auto;
-`
+
 const StyledPage = styled.div`
-  background: peachpuff;
+  background: #D0A9AA;
+`
+const ProductListContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
 `
 export default class Region extends Component {
   state = {
@@ -43,7 +49,6 @@ export default class Region extends Component {
       link: ''
     }]
   }
-  
 
 
   findRegion = async () => {
@@ -81,6 +86,13 @@ export default class Region extends Component {
     newProduct[event.target.name] = event.target.value
     this.setState({ newProduct })
   }
+
+  updateIdea = async (i) => {
+    const regionId = this.props.match.params.regionId
+    const updatedProduct = this.state.products[i]
+    await axios.put(`/api/users/${regionId}/ideas/${updatedProduct._id}`, updatedProduct)
+  }
+
   toggleFormShowing = () => {
     const isShowing = !this.state.formShowing
     this.setState({ formShowing: isShowing})
@@ -89,11 +101,15 @@ export default class Region extends Component {
   handleSubmit = async (event) => {
     event.preventDefault()
     const regionId = this.state.region._id
+    // console.log(regionId)
     const response = await axios.post(`/api/regions/${regionId}/products`, this.state.newProduct)
-    const products = this.state.products
+    console.log('Response:', response.data)
+    const products = this.state.region.products
+    // console.log(products)
     products.push(response.data)
     this.setState({ products })
   }
+
 
   render() {
     if (this.state.redirect) {
@@ -110,18 +126,45 @@ export default class Region extends Component {
         <div>{product.brandName}</div>
         <div>{product.productName}</div>
         <button onClick={() => this.handleProductDelete(product._id)}> Delete This Product</button>
+        {this.state.formShowing ? null : <Button variant="contained" onClick={this.toggleFormShowing}>Edit Product</Button>}
+        {this.state.formShowing ? 
+          <form onSubmit={this.handleSubmit} >
+            <div>
+              <input type='text' name='brandName' value={this.state.newProduct.brandName} placeholder='Brand Name'
+                onChange={this.handleChange}/>
+            </div>
+            <div>
+              <input type='text' name='productName' value={this.state.newProduct.productName} placeholder='Product Name'
+                onChange={this.handleChange}/>
+            </div>
+             <div>
+              <input type='text' name='description' value={this.state.newProduct.description} placeholder='Description'
+                onChange={this.handleChange}/>
+            </div>
+            <div>
+              <input type='text' name='image' value={this.state.newProduct.image} placeholder='Image URL'
+                onChange={this.handleChange}/>
+            </div>
+              <input type='text' name='price' value={this.state.newProduct.price} placeholder='Price'
+                onChange={this.handleChange}/>
+            <div>
+              <input type='text' name='link' value={this.state.newProduct.link} placeholder='Link to Purchase'
+                onChange={this.handleChange}/>
+            </div>
+            <div>
+              <input type='submit' value='Create'/>
+            </div>
+          </form> : null}
         </div>
       )
     })
     return (
       <StyledPage>
         <div>
+          <DeleteHeader regionId={this.state.region._id} />
           <HomeHeader />
-          <Header regionId={this.state.region._id}/>
-          <StyledHeaderImage src={region.image} alt={region.name}/>
-          {region.name}
-          {this.state.formShowing ? null : <button onClick={this.toggleFormShowing}>List New Product</button>}
-
+          <HomeLink />
+          <RegionNameAndImage image={this.state.region.image} name={this.state.region.name} />
            {this.state.formShowing ? 
               <form onSubmit={this.handleSubmit} >
                 <div>
@@ -151,13 +194,17 @@ export default class Region extends Component {
                 </div>
               </form> : null}
 
+              {this.state.formShowing ? null : < button onClick={this.toggleFormShowing}>idr</button>}
+
+
 
           <div>
           <Link to='/'>Home</Link>
           </div>
         </div>
+        <ProductListContainer>
         {productsList}
-        <button onClick={() => this.handleDelete(region._id)}> Delete This Region </button>
+        </ProductListContainer>
       </StyledPage>
     )
   }

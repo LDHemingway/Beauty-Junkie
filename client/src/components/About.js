@@ -10,7 +10,7 @@ const StyledImage = styled.img`
 const StyledHeader = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-content: center;
     
 `

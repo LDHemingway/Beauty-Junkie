@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import Header from './Header';
 
 
 const StyledHeader = styled.div `
@@ -11,15 +10,22 @@ const StyledHeader = styled.div `
     &:visited {
         text-decoration: none;
     }
-    :a {
+    a {
         text-decoration: none;
         color: white;
     }
-
+`
+const StyledLink = styled.a`
+    font-family: 'Poiret One', cursive;
+    font-size: 10vw;
+    text-decoration: none;
 `
 const HeaderContainer = styled.div`
     display: flex;
+    justify-content: center;
     align-content: center;
+    margin-left: 20px;
+    margin-right: 20px;
 `
 
 export default class HomeHeader extends Component {
