@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+
 
 const NewProductContainer = styled.div`
   display: flex;

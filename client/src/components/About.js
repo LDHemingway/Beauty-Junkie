@@ -11,7 +11,6 @@ const StyledHeader = styled.div`
     justify-content: space-evenly;
     align-content: center;
     align-items:center;
-    background: #e0d0db;
     flex-wrap: wrap;
     padding: 10px;
     margin-left: 40px;
@@ -21,8 +20,8 @@ const StyledHeader = styled.div`
     font-family: 'Poiret One', cursive; 
     p {
       height: 10vh;
-      width: 10vw;
-      margin-right: 20px;
+      margin: 0 auto;
+
     } 
 `
 
@@ -34,7 +33,8 @@ export default class About extends Component {
             <StyledImage src='SVG/Header.jpg' alt='Header' />
         </div>
         <div>
-            <p>nasfnldsflandfsdklksdnfjkfblsaknjkasnalnasld skjfbasdnsdfbjknsalknsjkbdjabsfslknasdklfnlkasfjkbslknasdbflknasklfakbldflsdnclkndflsdlkfnsakl</p>
+            <p>In my free time, I love to do makeup on others for special events and nights out. I can do a more toned-down look, or can create a full drag look. Here are some of my favorite go-to products and links to where you can purchase them!</p>
+            <p>XO,<br/>Lauren</p>
         </div>
       </StyledHeader>
     )

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import EditProduct from './EditProduct'
 import DeleteProduct from './DeleteProduct';
 import styled from 'styled-components'

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
-import { Link, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import DeleteHeader from './DeleteHeader'
 import HomeHeader from './HomeHeader'
 import HomeLink from './HomeLink'
@@ -80,7 +80,6 @@ export default class Region extends Component {
 
   handleProductDelete = async (productId) => {
     const regionId = this.state.region._id
-    // console.log('DELETE TRIGGERED')
     axios.delete(`/api/regions/${regionId}/products/${productId}`)
     this.findRegion()
   }
@@ -98,11 +97,9 @@ export default class Region extends Component {
   handleSubmit = async (event) => {
     event.preventDefault()
     const regionId = this.state.region._id
-    // console.log(regionId)
     const response = await axios.post(`/api/regions/${regionId}/products/`, this.state.newProduct)
     console.log('Response:', response.data)
     const products = this.state.region.products
-    // console.log(products)
     products.push(response.data)
     this.setState({ products })
   }
