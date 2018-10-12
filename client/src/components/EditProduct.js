@@ -61,7 +61,7 @@ getProducts = async () => {
   render() {
     return (
       <div>
-        {this.state.formShowing ? null : <Button variant="fab" color="primary" aria-label="Edit" onClick={this.toggleFormShowing}>Edit Product</Button>}
+        {this.state.formShowing ? null : <Button variant="contained" onClick={this.toggleFormShowing}>Edit Product</Button>}
         {this.state.formShowing ? 
           <form onSubmit={this.handleSubmit} >
             <div>
@@ -84,7 +84,7 @@ getProducts = async () => {
                 onChange={this.handleChange}/>
             <div>
               <input type='text' name='link' value={this.state.updatedProduct.link} placeholder='Link to Purchase'
-                onChange={this.props.handleChange}/>
+                onChange={this.handleChange}/>
             </div>
             <div>
               <input type='submit' value='Make Changes'/>

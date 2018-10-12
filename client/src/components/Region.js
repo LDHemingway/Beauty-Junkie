@@ -71,13 +71,6 @@ export default class Region extends Component {
     this.setState({ newProduct })
   }
 
-  getProducts = async () => {
-    console.log('getting')
-    const regionId = this.state.region._id
-    const response = await axios.get(`/api/regions/${regionId}/products`)
-    this.setState({products: response.data})  
-  }
-
   handleProductDelete = async (productId) => {
     const regionId = this.state.region._id
     axios.delete(`/api/regions/${regionId}/products/${productId}`)
@@ -112,7 +105,7 @@ export default class Region extends Component {
     const region = this.state.region 
     const productsList = this.state.region.products.map((product, i) => {
       return(
-        <Product productInfo={product} regionId={this.state.region._id}/>
+        <Product productInfo={product} regionId={this.state.region._id} link={product.link}/>
       )
     })
     return (

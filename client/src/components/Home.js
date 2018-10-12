@@ -5,6 +5,8 @@ import styled from 'styled-components'
 import About from './About'
 import HomeHeader from './HomeHeader'
 import HomeLink from './HomeLink'
+import Footer from './Footer';
+import Button from '@material-ui/core/Button';
 
 const StyledImage = styled.img`
     background: rgba(255, 158, 44, 0);
@@ -24,10 +26,16 @@ const RegionsContainer = styled.div`
     align-items: center;
     margin: 0 auto;
     margin-top: 20px;
+    margin-bottom: 100px;
     border-radius: 15%;
     padding: 10px;
     background: #8B636C;
     width: 50vw;
+`
+const Create = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 export default class Home extends Component {
@@ -98,10 +106,8 @@ export default class Home extends Component {
         <HomeHeader />
         <HomeLink />
         <About/>
-        <RegionsContainer>
-        {regionsList}
-        </RegionsContainer>
-    {this.state.formShowing ? null : <button onClick={this.toggleFormShowing}>Create New Region</button>} 
+        <Create>
+        {this.state.formShowing ? null : <Button variant="contained" onClick={this.toggleFormShowing}>Create New Region</Button>} 
         
         
         {this.state.formShowing ? <form onSubmit={this.handleSubmit} >
@@ -115,7 +121,12 @@ export default class Home extends Component {
 
         
 
-      </div>
+      </Create>
+        <RegionsContainer>
+        {regionsList}
+        </RegionsContainer>
+        <Footer />
+    </div>
     )
   } 
 }

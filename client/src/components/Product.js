@@ -55,8 +55,8 @@ export default class Product extends Component {
         <p>{productName}</p>
         <p>{price}</p>
         <p>{description}</p>
-        <LinkText><Link to={link}>Click Here to Purchase!</Link></LinkText>
-        <DeleteProduct id={this.props._id}/> 
+        <LinkText><a href={link}>Click Here to Purchase!</a></LinkText>
+        <DeleteProduct id={_id} regionId={this.props.regionId}/> 
         <EditProduct 
         brandName={brandName}
         productName={productName}
