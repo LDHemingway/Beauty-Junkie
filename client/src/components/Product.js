@@ -24,6 +24,16 @@ const ProductContainer = styled.div`
 const LinkText = styled.div`
   text-decoration: none;
   color: white;
+  padding: 10px;
+  a {
+    text-decoration: none;
+    color: gray;
+  }
+`
+const StyledButtons = styled.div`
+  display: flex;
+  align-content: space-between;
+  padding: 10px;
 `
 
 export default class Product extends Component {
@@ -56,6 +66,7 @@ export default class Product extends Component {
         <p>{price}</p>
         <p>{description}</p>
         <LinkText><a href={link}>Click Here to Purchase!</a></LinkText>
+        <StyledButtons>
         <DeleteProduct id={_id} regionId={this.props.regionId} findRegion={this.props.findRegion}/> 
         <EditProduct 
         brandName={brandName}
@@ -68,6 +79,7 @@ export default class Product extends Component {
         regionId={this.props.regionId}
         findRegion={this.props.findRegion}
         />
+        </StyledButtons>
       </ProductContainer>
     )
   }
