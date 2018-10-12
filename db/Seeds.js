@@ -17,7 +17,7 @@ const mascara = new Product({
 const foundation = new Product({
     brandName: "Too Faced",
     productName: "Born This Way",
-    descrition: "An oil-free foundation offering medium-to-full natural coverage. This foundation is infused with coconut water, alpine rose, and hyaluronic acid to help replenish the skin's moisture level and give a smoother, more youthful appearance",
+    description: "An oil-free foundation offering medium-to-full natural coverage. This foundation is infused with coconut water, alpine rose, and hyaluronic acid to help replenish the skin's moisture level and give a smoother, more youthful appearance",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-h7_KZmYyAN2-EsvzFD9NvS63OUar7xxXwOk1SMmE3PaPRyF9",
     price: "$39.00",
     link: "https://www.ulta.com/born-this-way-undetectable-medium-full-coverage-foundation?productId=xlsImpprod12621017"

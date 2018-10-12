@@ -10,6 +10,22 @@ const StyledImage = styled.img`
   border: 2px solid #8B636C;
   border-radius: 15%;
 `
+const ProductContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gray;
+  width: 50vw;
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 10px;
+  background: #ffe5eb;
+`
+const LinkText = styled.div`
+  text-decoration: none;
+  color: white;
+`
 
 export default class Product extends Component {
     state = {
@@ -33,16 +49,16 @@ export default class Product extends Component {
   render() {
     const { brandName, productName, image, price, description, link } = this.props.productInfo
     return (
-      <div>
+      <ProductContainer>
         <StyledImage src={image} alt={productName}/>
         <p><strong>{brandName}</strong></p>
         <p>{productName}</p>
         <p>{price}</p>
         <p>{description}</p>
-        <Link to={link}>Click Here to Purchase!</Link>
+        <LinkText><Link to={link}>Click Here to Purchase!</Link></LinkText>
         <DeleteProduct id={this.props._id}/> 
         <EditProduct />
-      </div>
+      </ProductContainer>
     )
   }
 }

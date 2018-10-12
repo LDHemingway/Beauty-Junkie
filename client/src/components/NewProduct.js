@@ -26,10 +26,6 @@ export default class NewProduct extends Component {
     event.preventDefault()
     const regionId = this.props.region._id
     const response = await axios.post(`/api/regions/${regionId}/products`, this.state.newProduct)
-    // console.log('Response:', response.data)
-    // const products = this.props.region.products
-    // products.push(response.data)
-    // this.setState({ products })
     await this.props.findRegion()
     
   }
