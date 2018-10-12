@@ -32,7 +32,8 @@ export default class Product extends Component {
         region: {
             name: '',
             image: '',
-            products: []
+            products: [],
+            _id: ''
         },
         product: {
             brandName:'',
@@ -47,7 +48,7 @@ export default class Product extends Component {
 
     
   render() {
-    const { brandName, productName, image, price, description, link } = this.props.productInfo
+    const { brandName, productName, image, price, description, link, _id } = this.props.productInfo
     return (
       <ProductContainer>
         <StyledImage src={image} alt={productName}/>
@@ -57,7 +58,16 @@ export default class Product extends Component {
         <p>{description}</p>
         <LinkText><Link to={link}>Click Here to Purchase!</Link></LinkText>
         <DeleteProduct id={this.props._id}/> 
-        <EditProduct />
+        <EditProduct 
+        brandName={brandName}
+        productName={productName}
+        price={price}
+        description={description}
+        link={link}
+        handleChange={this.handleChange}
+        productId={_id}
+        regionId={this.props.regionId}
+        />
       </ProductContainer>
     )
   }

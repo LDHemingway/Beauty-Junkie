@@ -18,7 +18,12 @@ const StyledHeader = styled.div`
     margin-right: 40px;
     margin-top: 10px;
     border-radius: 10%;
-    font-family: 'Poiret One', cursive;   
+    font-family: 'Poiret One', cursive; 
+    p {
+      height: 10vh;
+      width: 10vw;
+      margin-right: 20px;
+    } 
 `
 
 export default class About extends Component {

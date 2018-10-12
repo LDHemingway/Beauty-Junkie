@@ -58,7 +58,6 @@ export default class Region extends Component {
     const regionId = this.props.match.params.regionId
     const response = await axios.get(`/api/regions/${regionId}`)
     const region = response.data
-    // console.log("REPONSE: ", region)
     this.setState({region})
   }
   
@@ -116,7 +115,7 @@ export default class Region extends Component {
     const region = this.state.region 
     const productsList = this.state.region.products.map((product, i) => {
       return(
-        <Product productInfo={product}/>
+        <Product productInfo={product} regionId={this.state.region._id}/>
       )
     })
     return (
