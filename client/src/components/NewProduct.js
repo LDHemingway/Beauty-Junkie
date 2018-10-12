@@ -10,7 +10,7 @@ const NewProductContainer = styled.div`
   align-content: center;
 `
 
-export default class Product extends Component {
+export default class NewProduct extends Component {
 
 
 

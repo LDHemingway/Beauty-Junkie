@@ -3,6 +3,7 @@ import axios from 'axios'
 import EditProduct from './EditProduct'
 import DeleteProduct from './DeleteProduct';
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const StyledImage = styled.img`
   width: 20vw;
@@ -30,26 +31,17 @@ export default class Product extends Component {
 
     
   render() {
-    const productsList = this.state.region.products.map((product, i) => {
-        return(
-          <div key={i}>
-          <StyledImage src={product.image} alt={product.productName} />
-          <div><strong>{product.price}</strong></div>
-          <div>{product.brandName}</div>
-          <div>{product.productName}</div>
-          </div>
-        )
-    })
+    const { brandName, productName, image, price, description, link } = this.props.productInfo
     return (
       <div>
-        <EditProduct 
-        brandName={this.state.brandName}
-        productName={this.state.productName}
-        image={this.state.image}
-        price={this.state.price}
-        description={this.state.description}
-        link={this.state.link} />
-        <DeleteProduct id={this.props._id}/>
+        <StyledImage src={image} alt={productName}/>
+        <p><strong>{brandName}</strong></p>
+        <p>{productName}</p>
+        <p>{price}</p>
+        <p>{description}</p>
+        <Link to={link}>Click Here to Purchase!</Link>
+        <DeleteProduct id={this.props._id}/> 
+        <EditProduct />
       </div>
     )
   }

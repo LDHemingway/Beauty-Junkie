@@ -17,33 +17,33 @@ export default class EditProduct extends Component {
   render() {
     return (
       <div>
-        {this.state.formShowing ? null : <Button variant="fab" color="primary" aria-label="Edit" onClick={this.toggleFormShowing}>Edit Product</Button>}
-        {this.state.formShowing ? 
+        {this.props.formShowing ? null : <Button variant="fab" color="primary" aria-label="Edit" onClick={this.toggleFormShowing}>Edit Product</Button>}
+        {this.props.formShowing ? 
           <form onSubmit={this.handleSubmit} >
             <div>
-              <input type='text' name='brandName' value={this.state.ne.brandName} placeholder='Brand Name'
+              <input type='text' name='brandName' value={this.props.newProduct.brandName} placeholder='Brand Name'
                 onChange={this.handleChange}/>
             </div>
             <div>
-              <input type='text' name='productName' value={this.state.newProduct.productName} placeholder='Product Name'
+              <input type='text' name='productName' value={this.props.newProduct.productName} placeholder='Product Name'
                 onChange={this.handleChange}/>
             </div>
              <div>
-              <input type='text' name='description' value={this.state.newProduct.description} placeholder='Description'
+              <input type='text' name='description' value={this.props.newProduct.description} placeholder='Description'
                 onChange={this.handleChange}/>
             </div>
             <div>
-              <input type='text' name='image' value={this.state.newProduct.image} placeholder='Image URL'
+              <input type='text' name='image' value={this.props.newProduct.image} placeholder='Image URL'
                 onChange={this.handleChange}/>
             </div>
-              <input type='text' name='price' value={this.state.newProduct.price} placeholder='Price'
+              <input type='text' name='price' value={this.props.newProduct.price} placeholder='Price'
                 onChange={this.handleChange}/>
             <div>
-              <input type='text' name='link' value={this.state.newProduct.link} placeholder='Link to Purchase'
+              <input type='text' name='link' value={this.props.newProduct.link} placeholder='Link to Purchase'
                 onChange={this.handleChange}/>
             </div>
             <div>
-              <input type='submit' value='Create'/>
+              <input type='submit' value='edit'/>
             </div>
           </form> : null}
         </div>

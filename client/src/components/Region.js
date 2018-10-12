@@ -8,6 +8,7 @@ import HomeLink from './HomeLink'
 import RegionNameAndImage from './RegionNameAndImage'
 import Button from '@material-ui/core/Button';
 import NewProduct from './NewProduct'
+import Product from './Product';
 
 
 const StyledImage = styled.img`
@@ -115,42 +116,7 @@ export default class Region extends Component {
     const region = this.state.region 
     const productsList = this.state.region.products.map((product, i) => {
       return(
-        <div key={i}>
-        <StyledImage src={product.image} alt={product.productName} />
-        <div><strong>{product.price}</strong></div>
-        <div>{product.brandName}</div>
-        <div>{product.productName}</div>
-        <button onClick={() => this.handleProductDelete(product._id)}> Delete This Product</button>
-        {this.state.formShowing ? null : <Button variant="contained" onClick={this.toggleFormShowing}>Edit Product</Button>}
-        {this.state.formShowing ? 
-          <form onSubmit={this.handleSubmit} >
-            <div>
-              <input type='text' name='brandName' value={this.state.newProduct.brandName} placeholder='Brand Name'
-                onChange={this.handleChange}/>
-            </div>
-            <div>
-              <input type='text' name='productName' value={this.state.newProduct.productName} placeholder='Product Name'
-                onChange={this.handleChange}/>
-            </div>
-             <div>
-              <input type='text' name='description' value={this.state.newProduct.description} placeholder='Description'
-                onChange={this.handleChange}/>
-            </div>
-            <div>
-              <input type='text' name='image' value={this.state.newProduct.image} placeholder='Image URL'
-                onChange={this.handleChange}/>
-            </div>
-              <input type='text' name='price' value={this.state.newProduct.price} placeholder='Price'
-                onChange={this.handleChange}/>
-            <div>
-              <input type='text' name='link' value={this.state.newProduct.link} placeholder='Link to Purchase'
-                onChange={this.handleChange}/>
-            </div>
-            <div>
-              <input type='submit' value='Create'/>
-            </div>
-          </form> : null}
-        </div>
+        <Product productInfo={product}/>
       )
     })
     return (
