@@ -49,7 +49,7 @@ getProducts = async () => {
         const products = this.state.region.products
         products.push(response.data)
         this.setState({ products })
-        this.getProducts()
+        this.props.findRegion()
       }
 
       handleChange = (event) => {

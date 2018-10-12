@@ -56,7 +56,7 @@ export default class Product extends Component {
         <p>{price}</p>
         <p>{description}</p>
         <LinkText><a href={link}>Click Here to Purchase!</a></LinkText>
-        <DeleteProduct id={_id} regionId={this.props.regionId}/> 
+        <DeleteProduct id={_id} regionId={this.props.regionId} findRegion={this.props.findRegion}/> 
         <EditProduct 
         brandName={brandName}
         productName={productName}
@@ -66,6 +66,7 @@ export default class Product extends Component {
         handleChange={this.handleChange}
         productId={_id}
         regionId={this.props.regionId}
+        findRegion={this.props.findRegion}
         />
       </ProductContainer>
     )

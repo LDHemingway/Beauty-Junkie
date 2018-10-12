@@ -105,7 +105,7 @@ export default class Region extends Component {
     const region = this.state.region 
     const productsList = this.state.region.products.map((product, i) => {
       return(
-        <Product productInfo={product} regionId={this.state.region._id} link={product.link}/>
+        <Product productInfo={product} regionId={this.state.region._id} link={product.link} findRegion={this.findRegion}/>
       )
     })
     return (

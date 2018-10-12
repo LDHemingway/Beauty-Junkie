@@ -5,19 +5,12 @@ import axios from 'axios'
 export default class DeleteProduct extends Component {
 
 
-  findRegion = async () => {
-    const regionId = this.props.regionId
-    const response = await axios.get(`/api/regions/${regionId}`)
-    const region = response.data
-    this.setState({region})
-  }
-
   handleProductDelete = async (productId) => {
     const regionId = this.props.regionId
     console.log('deleting', regionId, productId)
     axios.delete(`/api/regions/${regionId}/products/${productId}`)
     console.log('Deleted')
-    this.findRegion()
+    this.props.findRegion()
   }
 
   render() {
